@@ -11,6 +11,7 @@ interface CartProps {
   onToggleSelection: (id: string) => void;
   onRemoveSelectedItems: () => void;
   onPurchase: () => void;
+  onGoToHome: () => void;
 }
 
 export const Cart = ({
@@ -20,14 +21,21 @@ export const Cart = ({
   onRemoveItem,
   onToggleSelection,
   onRemoveSelectedItems,
-  onPurchase
+  onPurchase,
+  onGoToHome
 }: CartProps) => {
   const hasSelected = hasSelectedItems(cartItems);
 
   if (cartItems.length === 0) {
     return (
-      <div className="flex items-center justify-center h-96 pb-20">
+      <div className="flex flex-col items-center justify-center h-96 pb-20 space-y-4">
         <p className="text-gray-500 text-lg">장바구니가 비어있습니다</p>
+        <button
+          onClick={onGoToHome}
+          className="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+        >
+          구매하러 가기
+        </button>
       </div>
     );
   }

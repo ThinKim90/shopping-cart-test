@@ -43,6 +43,10 @@ function App() {
     openModal('payment');
   };
 
+  const handleGoToHome = () => {
+    setActiveTab('home');
+  };
+
   const renderContent = () => {
     switch (activeTab) {
       case 'home':
@@ -57,6 +61,7 @@ function App() {
             onToggleSelection={toggleSelection}
             onRemoveSelectedItems={removeSelectedItems}
             onPurchase={handlePurchase}
+            onGoToHome={handleGoToHome}
           />
         );
       case 'community':
