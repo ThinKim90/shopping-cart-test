@@ -75,6 +75,14 @@ export const useCart = () => {
     setCartItems(prev => prev.filter(item => !item.selected));
   };
 
+  // 전체 선택/해제
+  const toggleSelectAll = () => {
+    const allSelected = cartItems.every(item => item.selected);
+    setCartItems(prev =>
+      prev.map(item => ({ ...item, selected: !allSelected }))
+    );
+  };
+
   return {
     cartItems,
     addToCart,
@@ -82,6 +90,7 @@ export const useCart = () => {
     decreaseQuantity,
     removeItem,
     toggleSelection,
-    removeSelectedItems
+    removeSelectedItems,
+    toggleSelectAll
   };
 };

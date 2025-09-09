@@ -19,7 +19,8 @@ function App() {
     decreaseQuantity,
     removeItem,
     toggleSelection,
-    removeSelectedItems
+    removeSelectedItems,
+    toggleSelectAll
   } = useCart();
   
   const { toasts, addToast, removeToast } = useToast();
@@ -62,6 +63,7 @@ function App() {
             onRemoveSelectedItems={removeSelectedItems}
             onPurchase={handlePurchase}
             onGoToHome={handleGoToHome}
+            onToggleSelectAll={toggleSelectAll}
           />
         );
       case 'community':

@@ -42,7 +42,7 @@ export const CartSummary = ({ cartItems, onPurchase }: CartSummaryProps) => {
         )}
         
         <div className="text-sm text-gray-600">
-          ₩30,000 이상 구매 시 배송비 무료
+          ₩50,000 이상 구매 시 배송비 무료
         </div>
       </div>
       

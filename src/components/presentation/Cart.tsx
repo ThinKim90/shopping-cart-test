@@ -12,6 +12,7 @@ interface CartProps {
   onRemoveSelectedItems: () => void;
   onPurchase: () => void;
   onGoToHome: () => void;
+  onToggleSelectAll: () => void;
 }
 
 export const Cart = ({
@@ -22,7 +23,8 @@ export const Cart = ({
   onToggleSelection,
   onRemoveSelectedItems,
   onPurchase,
-  onGoToHome
+  onGoToHome,
+  onToggleSelectAll
 }: CartProps) => {
   const hasSelected = hasSelectedItems(cartItems);
 
@@ -39,6 +41,8 @@ export const Cart = ({
       </div>
     );
   }
+
+  const allSelected = cartItems.length > 0 && cartItems.every(item => item.selected);
 
   return (
     <div className="pb-32">
@@ -58,6 +62,15 @@ export const Cart = ({
           </button>
         </div>
         
+        <div className="flex items-center mb-4 p-3 bg-gray-50 rounded">
+          <input
+            type="checkbox"
+            checked={allSelected}
+            onChange={onToggleSelectAll}
+            className="w-4 h-4 text-blue-600 mr-3"
+          />
+          <span className="text-gray-700">전체 선택</span>
+        </div>
         <div className="space-y-0">
           {cartItems.map(item => (
             <CartItem

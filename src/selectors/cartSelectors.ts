@@ -10,7 +10,7 @@ export const getSelectedSubtotal = (cartItems: CartItem[]): number => {
 // 배송비 계산
 export const getShippingFee = (selectedSubtotal: number): number => {
   if (selectedSubtotal <= 0) return 0;
-  return selectedSubtotal >= 30000 ? 0 : 3000;
+  return selectedSubtotal >= 50000 ? 0 : 3000;
 };
 
 // 총 결제 금액 계산
@@ -25,8 +25,8 @@ export const getExpectedMileage = (selectedSubtotal: number): number => {
 
 // 무료배송까지 남은 금액 계산
 export const getRemainingForFreeShipping = (selectedSubtotal: number): number => {
-  if (selectedSubtotal >= 30000) return 0;
-  return 30000 - selectedSubtotal;
+  if (selectedSubtotal >= 50000) return 0;
+  return 50000 - selectedSubtotal;
 };
 
 // 선택된 상품이 있는지 확인
